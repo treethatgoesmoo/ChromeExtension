@@ -60,4 +60,34 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
   }
 });
 
+// Handle keyboard commands
+chrome.commands.onCommand.addListener((command) => {
+  console.log('Command received:', command);
+
+  // Map commands to media control actions
+  const commandMap = {
+    'toggle-play-pause': 'toggle',
+    'next-track': 'next',
+    'previous-track': 'previous',
+    'volume-up': 'volumeUp',
+    'volume-down': 'volumeDown',
+    'toggle-mute': 'toggleMute',
+    'seek-forward': 'seekForward',
+    'seek-backward': 'seekBackward'
+  };
+
+  const mediaCommand = commandMap[command];
+  if (mediaCommand) {
+    // Send command to all tabs with media
+    const promises = Array.from(mediaTabs.keys()).map(id =>
+      chrome.tabs.sendMessage(id, { type: 'MEDIA_COMMAND', command: mediaCommand })
+        .catch(err => console.error(`Error controlling tab ${id}:`, err))
+    );
+
+    Promise.all(promises).then(() => {
+      console.log(`Command ${command} executed on ${promises.length} tab(s)`);
+    });
+  }
+});
+
 console.log('Universal Media Controller background service worker loaded');

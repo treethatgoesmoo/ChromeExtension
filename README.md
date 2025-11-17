@@ -10,7 +10,8 @@ A Chrome extension that provides unified media controls across all your tabs. Co
 - **Mute/Unmute**: Quickly mute all media
 - **Seek Controls**: Jump forward or backward by 10 seconds
 - **Tab Management**: See which tabs are playing media and click to switch to them
-- **Keyboard Shortcuts**: Control media without using the mouse
+- **Global Keyboard Shortcuts**: Control media from anywhere in Chrome without opening the popup
+- **Customizable Shortcuts**: Rebind all keyboard shortcuts to your preference
 - **Persistent Settings**: Volume and mute preferences are remembered
 
 ## Installation
@@ -44,6 +45,11 @@ A Chrome extension that provides unified media controls across all your tabs. Co
    - You should see the extension icon in your Chrome toolbar
    - If not visible, click the puzzle piece icon and pin the extension
 
+7. **(Optional) Customize Keyboard Shortcuts**:
+   - Go to `chrome://extensions/shortcuts`
+   - Find "Universal Media Controller"
+   - Customize the global keyboard shortcuts to your preference
+
 ## Usage
 
 ### Basic Controls
@@ -70,7 +76,25 @@ A Chrome extension that provides unified media controls across all your tabs. Co
 
 ### Keyboard Shortcuts
 
-When the popup is open:
+**Global Shortcuts (Work anywhere in Chrome):**
+
+These shortcuts work even when the popup is closed, allowing you to control media from any tab:
+
+| Action | Windows/Linux | Mac |
+|--------|---------------|-----|
+| Play/Pause | `Ctrl+Shift+P` | `Cmd+Shift+P` |
+| Next Track | `Ctrl+Shift+N` | `Cmd+Shift+N` |
+| Previous Track | `Ctrl+Shift+B` | `Cmd+Shift+B` |
+| Volume Up | `Ctrl+Shift+↑` | `Cmd+Shift+↑` |
+| Volume Down | `Ctrl+Shift+↓` | `Cmd+Shift+↓` |
+| Mute/Unmute | `Ctrl+Shift+M` | `Cmd+Shift+M` |
+| Seek Forward | `Ctrl+Shift+→` | `Cmd+Shift+→` |
+| Seek Backward | `Ctrl+Shift+←` | `Cmd+Shift+←` |
+
+**Customize shortcuts**: Visit `chrome://extensions/shortcuts`
+
+**Popup Shortcuts (When popup is open):**
+
 - `Space` or `K` - Play/Pause
 - `Arrow Left` - Seek backward 10s
 - `Arrow Right` - Seek forward 10s
@@ -79,6 +103,8 @@ When the popup is open:
 - `M` - Mute/Unmute
 - `N` - Next track
 - `P` - Previous track
+
+See [KEYBOARD_SHORTCUTS.md](KEYBOARD_SHORTCUTS.md) for detailed keyboard shortcuts documentation.
 
 ### Managing Multiple Tabs
 
